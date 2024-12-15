@@ -1,0 +1,15 @@
+/* Contenedor y estilo de texto */
+.draggable-container {
+    position: absolute; /* Necesario para permitir movimiento */
+    top: 20px;
+    right: 20px;
+    cursor: move;
+    width: 250px;
+    z-index: 1000; /* Mantener encima de otros elementos */
+}
+
+#draggable-textarea {
+    width: 100%;
+    height: 100%;
+    resize: none; /* Evita el redimensionamiento */
+}

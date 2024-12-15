@@ -1,0 +1,94 @@
+/* Estilos generales del Sidebar */
+.sidebar {
+    background-color: #2e3b4e; /* Fondo más suave, en lugar de negro */
+    color: #fff; /* Texto en blanco */
+    width: 250px; /* Ancho fijo del sidebar */
+    padding-top: 20px;
+    height: 100vh; /* Altura completa de la pantalla */
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente oculto en la pantalla */
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* Estilos para los botones dentro del sidebar */
+.sidebar .nav-item {
+    margin: 10px 0;
+}
+
+.sidebar .nav-link {
+    display: block;
+    padding: 12px 20px;
+    color: #fff; /* Color blanco para el texto */
+    background-color: #0fbbe6; /* Color de fondo de los botones */
+    border-radius: 30px; /* Bordes redondeados */
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Sin subrayado */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #028f9d; /* Color más oscuro al pasar el ratón */
+    box-shadow: #fff; /* Sombra ligera */
+}
+
+/* Estilos para los enlaces activos */
+.sidebar .nav-link.active {
+    background-color: #028f9d;
+    font-weight: bold;
+}
+
+/* Ajustes para la responsividad */
+@media (max-width: 768px) {
+    /* Hacer que el sidebar ocupe toda la pantalla cuando está visible */
+    .sidebar {
+        left: -100%; /* Ocultar el sidebar por defecto */
+    }
+
+    .sidebar.active {
+        left: 0; /* Mostrar el sidebar cuando está activo */
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+}
+
+/* Botón de hamburguesa */
+.sidebar-toggle {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1050;
+    background: none;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    color: #0fbbe6; /* Cambio de color al pasar el ratón */
+}
+
+/* Estilos para el header, asegurando que no se superponga con el sidebar */
+header {
+    z-index: 999;
+    position: relative;
+}
+
+/* Asegurarse de que el contenido principal no quede tapado */
+.content {
+    margin-left: 250px; /* Desplazar el contenido cuando el sidebar está abierto */
+    transition: all 0.3s ease;
+}
+
+/* Ajustar el margen cuando el sidebar se muestra en pantallas pequeñas */
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+}
