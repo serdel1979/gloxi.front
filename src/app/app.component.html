@@ -3,18 +3,43 @@
   <div class="header-wrapper">
     <app-header></app-header>
 
+    @if(isLoggedIn){
     <app-primary-menu></app-primary-menu>
+    }
+
 
   </div>
   <div class="page-wrapper">
 
-    <div class="container-fluid">
+    <div class="container">
 
       <div class="row">
 
         <div class="col-12 col-lg-2 mt-4">
+          @if(isLoggedIn){
           <app-filter-menu></app-filter-menu>
+          }
         </div>
+        @if(!isLoggedIn){
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <app-infoproducts></app-infoproducts>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <app-infoproducts></app-infoproducts>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <app-infoproducts></app-infoproducts>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <app-infoproducts></app-infoproducts>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <app-infoproducts></app-infoproducts>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <app-infoproducts></app-infoproducts>
+        </div>
+        }@else{
         <div class="col-12 col-lg-10" style="margin-top: 20px;">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
             <div class="col">
@@ -44,23 +69,23 @@
             </div>
           </div>
         </div>
-
-
-        <hr>
-        <h3 class="mt-4 mb-2">Patrocinado</h3>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
-          <div class="col">
-            <app-infoproducts></app-infoproducts>
-          </div>
-          <div class="col">
-            <app-infoproducts></app-infoproducts>
-          </div>
-          <div class="col">
-            <app-infoproducts></app-infoproducts>
-          </div>
-        </div>
-
+        }
       </div>
+      <hr>
+      <h3 class="mt-4 mb-2">Patrocinado</h3>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
+        <div class="col">
+          <app-infoproducts></app-infoproducts>
+        </div>
+        <div class="col">
+          <app-infoproducts></app-infoproducts>
+        </div>
+        <div class="col">
+          <app-infoproducts></app-infoproducts>
+        </div>
+      </div>
+
+
     </div>
   </div>
 
