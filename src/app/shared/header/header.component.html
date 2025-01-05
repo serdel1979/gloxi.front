@@ -179,8 +179,7 @@
                     </li>
                     @if(!isLoggedIn){
                         <li>
-                            <a href="authentication-signin.html" type="button"
-                                class="btn btn-primary radius-10  btn-sm">Iniciar Sesion</a>
+                            <button class="btn btn-primary radius-10  btn-sm" (click)="onLoginClick()">Iniciar Sesión</button>
                         </li>
                     }
 

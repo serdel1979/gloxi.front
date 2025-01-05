@@ -1,7 +1,7 @@
 <div class="wrapper">
   <!--start header wrapper-->
   <div class="header-wrapper">
-    <app-header></app-header>
+    <app-header  (loginClicked)="openLogin()"></app-header>
 
     @if(isLoggedIn){
     <app-primary-menu></app-primary-menu>
@@ -11,36 +11,26 @@
   </div>
   <div class="page-wrapper">
 
-    <div class="container">
+    @if(showLogin){
+      <app-login (closeLogin)="closeLogin()"></app-login>
+    }@else{
 
-      <div class="row">
+        <div class="container-fluid">
 
-        <div class="col-12 col-lg-2 mt-4">
-          @if(isLoggedIn){
-          <app-filter-menu></app-filter-menu>
+          <div class="row">
+            @if(isLoggedIn){
+                <div class="col-12 col-lg-2 mt-4">
+                
+                  <app-filter-menu></app-filter-menu>
+                  
+                </div>
           }
-        </div>
-        @if(!isLoggedIn){
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <app-infoproducts></app-infoproducts>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <app-infoproducts></app-infoproducts>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <app-infoproducts></app-infoproducts>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <app-infoproducts></app-infoproducts>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <app-infoproducts></app-infoproducts>
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <app-infoproducts></app-infoproducts>
-        </div>
-        }@else{
-        <div class="col-12 col-lg-10" style="margin-top: 20px;">
+            
+            <router-outlet />
+          
+          </div>
+          <hr>
+          <h3 class="mt-4 mb-2">Patrocinado</h3>
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
             <div class="col">
               <app-infoproducts></app-infoproducts>
@@ -48,49 +38,16 @@
             <div class="col">
               <app-infoproducts></app-infoproducts>
             </div>
-
-            <!-- Card 3 -->
-            <div class="col">
-              <app-infoproducts></app-infoproducts>
-            </div>
-
-            <div class="col">
-              <app-infoproducts></app-infoproducts>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col">
-              <app-infoproducts></app-infoproducts>
-            </div>
-
-            <!-- Card 3 -->
             <div class="col">
               <app-infoproducts></app-infoproducts>
             </div>
           </div>
-        </div>
-        }
-      </div>
-      <hr>
-      <h3 class="mt-4 mb-2">Patrocinado</h3>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
-        <div class="col">
-          <app-infoproducts></app-infoproducts>
-        </div>
-        <div class="col">
-          <app-infoproducts></app-infoproducts>
-        </div>
-        <div class="col">
-          <app-infoproducts></app-infoproducts>
-        </div>
-      </div>
 
 
-    </div>
+        </div>
+    }
   </div>
 
   <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
   <app-footer></app-footer>
 </div>
-
-<router-outlet />

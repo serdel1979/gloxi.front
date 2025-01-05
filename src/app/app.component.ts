@@ -7,18 +7,20 @@ import { FilterMenuComponent } from './menu/filter-menu/filter-menu.component';
 import { InfoproductsComponent } from './inforproducts/infoproducts/infoproducts.component';
 import { AuthService } from './services/auth.service';
 import { HttpClient } from '@angular/common/http';
+import LoginComponent from "./pages/login/login.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, 
-    HeaderComponent, 
-    FooterComponent, 
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
     PrimaryMenuComponent,
-    FilterMenuComponent, 
-    InfoproductsComponent
- ],
+    FilterMenuComponent,
+    InfoproductsComponent,
+    LoginComponent
+],
   providers:[AuthService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -29,6 +31,8 @@ export class AppComponent implements OnInit{
 
   isLoggedIn = false;
 
+  showLogin = false;
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -38,6 +42,14 @@ export class AppComponent implements OnInit{
     });
   }
 
+
+  openLogin() {
+    this.showLogin = true;  
+  }
+
+  closeLogin() {
+    this.showLogin = false; 
+  }
 
 
 }

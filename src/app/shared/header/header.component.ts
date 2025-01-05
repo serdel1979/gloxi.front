@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GloxiComponent } from './gloxi/gloxi.component';
 import { AuthService } from '../../services/auth.service';
 
@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn = false;
 
+  @Output() loginClicked = new EventEmitter<void>();
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -21,6 +23,10 @@ export class HeaderComponent implements OnInit {
     this.authService.getCurrentUser().subscribe(user => {
       this.isLoggedIn = !!user; 
     });
+  }
+
+  onLoginClick() {
+    this.loginClicked.emit();
   }
 
 }
